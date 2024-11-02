@@ -1,6 +1,5 @@
-// src/AudioPlayer.js
-import React, { useState, useRef } from "react";
-import "./AudioPlayer.css"; // Create a separate CSS file for styling
+import React, { useState, useRef, useEffect } from "react";
+import "./AudioPlayer.css";
 
 const audioFiles = [
   "CafeAustriaAudio.mp3",
@@ -15,7 +14,14 @@ const audioFiles = [
 
 const AudioPlayer = () => {
   const [currentAudioIndex, setCurrentAudioIndex] = useState(0);
+  const [volume, setVolume] = useState(0.5);
   const audioRef = useRef(null);
+
+  useEffect(() => {
+    audioRef.current.volume = volume; // Set initial volume
+    audioRef.current.src = require(`./${audioFiles[currentAudioIndex]}`);
+    audioRef.current.load(); // Load the new audio source
+  }, [currentAudioIndex, volume]);
 
   const playPauseAudio = () => {
     if (audioRef.current.paused) {
@@ -27,16 +33,21 @@ const AudioPlayer = () => {
 
   const changeAudio = (index) => {
     setCurrentAudioIndex(index);
-    audioRef.current.src = require(`./${audioFiles[index]}`);
-    audioRef.current.play();
   };
 
   const handleVolumeChange = (event) => {
-    audioRef.current.volume = event.target.value;
+    const newVolume = event.target.value;
+    setVolume(newVolume);
+    audioRef.current.volume = newVolume;
   };
 
   return (
     <div className="audio-controls">
+      <h3>
+        {audioFiles[currentAudioIndex]
+          .replace(/Audio\.mp3$/, "")
+          .replace(/Cafe/, "Cafe ")}
+      </h3>
       <button
         onClick={() =>
           changeAudio(
@@ -54,21 +65,18 @@ const AudioPlayer = () => {
       >
         Next
       </button>
-      <input
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-        defaultValue="0.5"
-        onChange={handleVolumeChange}
-      />
-      <audio ref={audioRef} loop>
-        <source
-          src={require(`./${audioFiles[currentAudioIndex]}`)}
-          type="audio/mpeg"
+      <div className="volume-control">
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={volume}
+          onChange={handleVolumeChange}
         />
-        Your browser does not support the audio tag.
-      </audio>
+        <span>{Math.round(volume * 100)}%</span>
+      </div>
+      <audio ref={audioRef} loop />
     </div>
   );
 };
