@@ -1,6 +1,13 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+// import AudioPlayer from "/Users/mattwhy/Documents/Academics/GitHub/Bhacks2024Table19/client/src/Audio/AudioPlayer.css"; 
+import "./App.css";
 
-import './App.css';
 import CoffeeShop from './CoffeeShop/CoffeeShop.js';
 
 function App() {
