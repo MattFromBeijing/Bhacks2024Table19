@@ -5,10 +5,8 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import AudioPlayer from "../AudioPlayer"; // Adjust this path as needed
+import AudioPlayer from "/Users/pretzelr/Documents/GitHub/Hackathon/BostonHacks24/Bhacks2024Table19/client/src/Audio/AudioPlayer.css"; // Adjust this path as needed
 import "./App.css"; // Keep your existing styles
-
-import "./App.css";
 import CoffeeShop from "./CoffeeShop/CoffeeShop.js";
 
 function App() {
@@ -19,6 +17,7 @@ function App() {
           <Route path="/" element={<Navigate to="/coffeeshop" replace />} />
           <Route path="coffeeShop" element={<CoffeeShop />} />
         </Routes>
+        <AudioPlayer /> {/* Render the AudioPlayer component */}
       </div>
     </Router>
   );
