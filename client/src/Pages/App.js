@@ -5,9 +5,11 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+
 import AudioPlayer from "../Audio/AudioPlayer"; // Adjust this path as needed
 import "./App.css";
 import CoffeeShop from "./CoffeeShop/CoffeeShop.js";
+
 
 function App() {
   return (

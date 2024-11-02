@@ -1,3 +1,5 @@
 .App {
-  padding: 20px 20px 20px 20px;
+  background-color: black;
+  min-height: 100vh;
+  min-width: 100vw;
 }
