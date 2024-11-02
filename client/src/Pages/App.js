@@ -5,7 +5,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import AudioPlayer from "../AudioPlayer"; // Adjust this path as needed
+import AudioPlayer from "/Users/pretzelr/Documents/GitHub/Hackathon/BostonHacks24/Bhacks2024Table19/client/src/Audio/AudioPlayer.js"; // Adjust this path as needed
 import "./App.css"; // Keep your existing styles
 
 import "./App.css";
