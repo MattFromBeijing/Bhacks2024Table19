@@ -5,9 +5,10 @@ import './CoffeeShop.css'
 
 function CoffeeShop() {
     return (
-        <div>
-          <img className='background' src='coffee3.png' alt='coffe' />
-        </div>
+      <div className='background-wrapper'>
+        <img className='background' src='coffee5.png' alt='coffee'/>
+        <img className='jukebox' src='jukebox.png' alt='coffee'/>
+      </div>
     )
 }
 
