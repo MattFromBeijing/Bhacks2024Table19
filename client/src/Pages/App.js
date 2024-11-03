@@ -9,6 +9,7 @@ import {
 import AudioPlayer from "../Audio/AudioPlayer"; // Adjust this path as needed
 import "./App.css";
 import CoffeeShop from "./CoffeeShop/CoffeeShop.js";
+import Park from "./Park/Park.js";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/coffeeshop" replace />} />
           <Route path="coffeeShop" element={<CoffeeShop />} />
+          <Route path="park" element={<Park />} />
           <Route path='audioPlayer' element={<AudioPlayer />} />
         </Routes>
       </div>

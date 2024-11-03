@@ -10,6 +10,7 @@ function CoffeeShop() {
         <img className='jukebox' src='jukebox.png' alt='juke'/>
         <img className='coffee' src ='coffee.png' alt='coffee'/>
         <img className='bread' src ='bread.png' alt='bread'/>
+        <img className='world' src ='world.png' alt='world'/>
       </div>
     )
 }

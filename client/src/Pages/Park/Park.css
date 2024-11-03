@@ -1,0 +1,24 @@
+.background-wrapper {
+    height: 762px;
+    width: 1272px;
+    position: relative;
+}
+
+    .background-wrapper img.park {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .background-wrapper img.world {
+        position: absolute;
+        left: 680px;
+        top: -380px;
+        transform: scale(0.18);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .background-wrapper img.world:hover {
+        transform: scale(0.21);
+    }

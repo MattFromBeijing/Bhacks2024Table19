@@ -48,3 +48,16 @@
     .background-wrapper img.bread:hover {
         transform: scale(0.78);
     }
+
+    .background-wrapper img.world {
+        position: absolute;
+        left: 680px;
+        top: -380px;
+        transform: scale(0.18);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .background-wrapper img.world:hover {
+        transform: scale(0.21);
+    }
