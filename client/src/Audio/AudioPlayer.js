@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./AudioPlayer.css";
-import playIcon from "../Audio/AudioSpeakerPlay.png"; // Adjust with correct path if necessary
-import pauseIcon from "../Audio/AudioSpeakerPause.png"; // Adjust with correct path if necessary
+import playIcon from "../Audio/AudioSpeakerPlay.png";
+import pauseIcon from "../Audio/AudioSpeakerPause.png";
 
 const audioFiles = [
   "audio/CafeAustriaAudio.mp3",
@@ -14,16 +14,15 @@ const audioFiles = [
   "audio/CafeSpainAudio.mp3",
 ];
 
-// Array of titles corresponding to each audio file
 const audioTitles = [
-  "Cafe Austria",
-  "Cafe Bolivia",
-  "Cafe England",
-  "Cafe France",
-  "Cafe Greece",
-  "Cafe Italy",
-  "Cafe Slovakia",
-  "Cafe Spain",
+  "Somewhere in in/ Austria",
+  "Somewhere in in/ Bolivia",
+  "Somewhere in in/ England",
+  "Somewhere in in/ France",
+  "Somewhere in in/ Greece",
+  "Somewhere in in/ Italy",
+  "Somewhere in in/ Slovakia",
+  "Somewhere in in/ Spain",
 ];
 
 const AudioPlayer = () => {
@@ -34,19 +33,18 @@ const AudioPlayer = () => {
 
   useEffect(() => {
     audioRef.current.src = require(`./${audioFiles[currentAudioIndex]}`);
-    audioRef.current.volume = volume; // Set volume when audio index changes
+    audioRef.current.volume = volume;
     audioRef.current.load();
-    setIsPlaying(false); // Ensure it's paused when switching tracks
+    setIsPlaying(false);
 
-    // Cleanup on unmount
     return () => {
       audioRef.current.pause();
-      audioRef.current.src = ""; // Reset the source
+      audioRef.current.src = "";
     };
   }, [currentAudioIndex]);
 
   useEffect(() => {
-    audioRef.current.volume = volume; // Update volume without restarting
+    audioRef.current.volume = volume;
   }, [volume]);
 
   const playPauseAudio = () => {
@@ -61,20 +59,20 @@ const AudioPlayer = () => {
 
   const changeAudio = (index) => {
     setCurrentAudioIndex(index);
-    audioRef.current.pause(); // Pause the audio
-    setIsPlaying(false); // Set the icon to paused
+    audioRef.current.pause();
+    setIsPlaying(false);
   };
 
   const handleVolumeChange = (event) => {
     const newVolume = event.target.value;
-    setVolume(newVolume); // Update volume state
+    setVolume(newVolume);
   };
 
   return (
     <div className="audio-controls">
-      <h3>
-        {audioTitles[currentAudioIndex]}{" "}
-        {/* Display title instead of filename */}
+      <h3 style={{ textAlign: "center" }}>
+        <div>{audioTitles[currentAudioIndex].split(" in/ ")[0]}</div>
+        <div>{audioTitles[currentAudioIndex].split(" in/ ")[1]}</div>
       </h3>
       <div className="controls">
         <button
