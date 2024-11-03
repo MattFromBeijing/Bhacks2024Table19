@@ -18,8 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/coffeeshop" replace />} />
           <Route path="coffeeShop" element={<CoffeeShop />} />
+          <Route path='audioPlayer' element={<AudioPlayer />} />
         </Routes>
-        <AudioPlayer /> {/* This will render the AudioPlayer */}
       </div>
     </Router>
   );

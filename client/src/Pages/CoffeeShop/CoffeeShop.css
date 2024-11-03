@@ -4,7 +4,7 @@
     position: relative;
 }
 
-    .background-wrapper img.background {
+    .background-wrapper img.coffeehouse {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -21,4 +21,30 @@
 
     .background-wrapper img.jukebox:hover {
         transform: scale(0.83);
+    }
+
+    .background-wrapper img.coffee {
+        position: absolute;
+        right: 395px;
+        bottom: 230px;
+        transform: scale(0.82);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .background-wrapper img.coffee:hover {
+        transform: scale(0.85);
+    }
+
+    .background-wrapper img.bread {
+        position: absolute;
+        left: 342px;
+        top: 300px;
+        transform: scale(0.75);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .background-wrapper img.bread:hover {
+        transform: scale(0.78);
     }

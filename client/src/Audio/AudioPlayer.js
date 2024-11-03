@@ -2,14 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 import "./AudioPlayer.css";
 
 const audioFiles = [
-  "CafeAustriaAudio.mp3",
-  "CafeBoliviaAudio.mp3",
-  "CafeEnglandAudio.mp3",
-  "CafeFranceAudio.mp3",
-  "CafeGreeceAudio.mp3",
-  "CafeItalyAudio.mp3",
-  "CafeSlovakiaAudio.mp3",
-  "CafeSpainAudio.mp3",
+  "audio/CafeAustriaAudio.mp3",
+  "audio/CafeBoliviaAudio.mp3",
+  "audio/CafeEnglandAudio.mp3",
+  "audio/CafeFranceAudio.mp3",
+  "audio/CafeGreeceAudio.mp3",
+  "audio/CafeItalyAudio.mp3",
+  "audio/CafeSlovakiaAudio.mp3",
+  "audio/CafeSpainAudio.mp3",
 ];
 
 const AudioPlayer = () => {
