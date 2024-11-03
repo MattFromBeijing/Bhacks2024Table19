@@ -1,9 +1,9 @@
 
 Here's a polished and structured README based on your project description, summarizing the purpose, tech stack, and the significance of your application:
 
-# Welcome to XXX 🌌🚀
+# Welcome to Interstellar Cafe 🌌🚀
 
-XXX is an immersive web application designed to help astronauts on extended space missions reconnect with their home planet, Earth. By engaging their auditory senses, our platform soothes the isolation of space and evokes the warmth and familiarity of life on Earth, providing a much-needed sense of comfort and motivation.
+Interstellar is an immersive web application designed to help astronauts on extended space missions reconnect with their home planet, Earth. By engaging their auditory senses, our platform soothes the isolation of space and evokes the warmth and familiarity of life on Earth, providing a much-needed sense of comfort and motivation.
 
 ## 🌍 Overview of the Application
 
