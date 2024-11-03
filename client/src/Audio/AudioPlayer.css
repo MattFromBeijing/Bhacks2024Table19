@@ -1,7 +1,7 @@
 .audio-controls {
   position: absolute; /* Fixed position to overlay */
-  bottom: 425px;
-  right: 35px;
+  bottom: 500px;
+  right:185px;
   background: rgba(169, 169, 169, 0.9); /* Semi-transparent grey */
   padding: 10px;
   border-radius: 10px;

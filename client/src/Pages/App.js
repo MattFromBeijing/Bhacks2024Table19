@@ -19,6 +19,7 @@ function App() {
           <Route path="coffeeShop" element={<CoffeeShop />} />
           <Route path="audioPlayer" element={<AudioPlayer />} />
         </Routes>
+        <AudioPlayer/>
       </div>
     </Router>
   );

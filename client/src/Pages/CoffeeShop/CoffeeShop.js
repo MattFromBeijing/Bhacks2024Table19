@@ -3,13 +3,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import io from 'socket.io-client'
 import AudioPlayer from "../../Audio/AudioPlayer"; // Adjust the path if necessary
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Modal } from 'react-bootstrap';
 import "./CoffeeShop.css";
 
 function CoffeeShop() {
-  const [message, setMessage] = useState("");
-  const [messagesReceived, setMessagesReceived] = useState([]);
+
   const socket = io.connect('http://localhost:5000')
   const [myId, setMyId] = useState("")
+
+///// instant messaging //////
+
+  const [message, setMessage] = useState("");
+  const [messagesReceived, setMessagesReceived] = useState([]);
 
   const handleInputChange = (e) => {
     setMessage(e.target.value);
@@ -27,7 +33,7 @@ function CoffeeShop() {
   useEffect(() => {
     socket.on("receive_message", (data) => {
       let currMessages = [...messagesReceived, data]
-      console.log(currMessages)
+      // console.log(currMessages) 
       setMessagesReceived(currMessages);
     })
   }, [socket])
@@ -51,8 +57,55 @@ function CoffeeShop() {
     )
   }
 
+///// spotify /////
+
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const [playListId, setPlayListId] = useState("");
+  const [inputValue, setInputValue] = useState('');
+  const [totalSongs, setTotalSongs] = useState(1);
+
+  const [show, setShow] = useState(false);  
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  function extractSpotifyUri(link) {
+    const match = link.match(/\/track\/([^?]+)/);
+    return match ? `spotify:track:${match[1]}` : null;
+  }
+
+  const createPlaylist = (url) => {
+    let URI = extractSpotifyUri(url)
+    socket.emit("create_playlist", { uri : URI})
+    setTotalSongs(1)
+  }
+
+  const addSong = async (url) => {
+    let URI = extractSpotifyUri(url)
+    socket.emit("add_song", { playId: playListId , uri : URI})
+
+    await delay(2000);
+    console.log("WAIT")
+
+    setTotalSongs(totalSongs + 1)
+  }
+
+  useEffect(() => {
+    socket.on("start_playlist", (data) => {
+
+      console.log(data)
+      console.log(data.id)
+
+      // let playId = data.id
+      setPlayListId(data.id)
+    })
+  }, [socket])
+
+///// display /////
+
   return (
     <div className='background-wrapper'>
+
       <div className="chatbox">
         <div className="receive-section">
           {
@@ -86,23 +139,95 @@ function CoffeeShop() {
         </div>
       </div>
 
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton style={{ backgroundColor: '#b47b5a', color: '#fff' }}>
+          <Modal.Title>Start Playlist</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ backgroundColor: '#53382c', color: '#fff' }}>
+          {
+            (
+              (playListId !== '') 
+              ?
+                <>
+                  <iframe
+                    key={totalSongs}
+                    title="Spotify Embed: Recommendation Playlist"
+                    src={`https://open.spotify.com/embed/playlist/${playListId}?utm_source=generator&theme=0`}
+                    width="100%"
+                    height="100%"
+                    style={{ minHeight: '360px' }}
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                  /> 
+                  <form>
+                    <input 
+                      type="text"
+                      name="song_url"
+                      placeholder="Enter song url"
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      style={{ width: '100%'}}
+                      required
+                    > 
+                    </input>
+                  </form>
+                </>
+              : 
+              <form>
+                <input 
+                  type="text"
+                  name="song_url"
+                  placeholder="Enter song url"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  style={{ width: '100%'}}
+                  required
+                > 
+                </input>
+              </form>
+            )
+          }
+        </Modal.Body>
+        <Modal.Footer style={{ backgroundColor: '#b47b5a', color: '#fff' }}>
+          <Button variant="secondary" onClick={handleClose} style={{ backgroundColor: '#ddc9a0', color: '#fff' }}>
+            Close
+          </Button>
+
+        {
+          (
+            (playListId !== '')
+            ?
+              <Button variant="secondary" 
+                onClick={() => {
+                  addSong(inputValue)
+                  setInputValue("")
+                }} 
+                style={{ backgroundColor: '#ddc9a0', color: '#fff' }}
+              >
+                Add Songs
+              </Button>
+            :
+              <Button variant="secondary" 
+                onClick={() => {
+                  createPlaylist(inputValue)
+                  setInputValue("")
+                }} 
+                style={{ backgroundColor: '#ddc9a0', color: '#fff' }}
+              >
+                Create Playlist
+              </Button>
+          )
+        }
+
+        </Modal.Footer>
+      </Modal>
+
       <img className='coffeehouse' src='coffeehouse.png' alt='coffeehouse'/>
-      <img className='jukebox' src='jukebox.png' alt='juke'/>
+      <img className='jukebox' src='jukebox.png' alt='juke' onClick={handleShow}/>
       <img className='coffee' src ='coffee.png' alt='coffee'/>
       <img className='bread' src ='bread.png' alt='bread'/>
     </div>
   )
-
-  return (
-    <div className="background-wrapper">
-      <img className="coffeehouse" src="coffeehouse.png" alt="coffeehouse" />
-      <img className="jukebox" src="jukebox.png" alt="juke" />
-      <img className="coffee" src="coffee.png" alt="coffee" />
-      <img className="bread" src="bread.png" alt="bread" />
-      <AudioPlayer />
-      {/* <AudioPlayer /> */}
-    </div>
-  );
 
 }
 
