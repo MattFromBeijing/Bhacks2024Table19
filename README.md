@@ -2,20 +2,27 @@
 Here's a polished and structured README based on your project description, summarizing the purpose, tech stack, and the significance of your application:
 
 Welcome to XXX 🌌🚀
+
 XXX is an immersive web application designed to help astronauts on extended space missions reconnect with their home planet, Earth. By engaging their auditory senses, our platform soothes the isolation of space and evokes the warmth and familiarity of life on Earth, providing a much-needed sense of comfort and motivation.
 
 🌍 Overview of the Application
+
 Imagine being thousands of miles away from Earth, longing for the feeling of home. XXX offers astronauts a unique experience that simulates the connection to their home planet through a beautifully animated solar system and the comforting ambience of a virtual café.
 
 Starting from the Solar System:
+
 Users begin their journey by observing the dynamic, moving solar system. This view then transitions into an engaging zoom-in animation towards Earth, brought to life using Three.js, giving users a holistic and visually captivating experience of their home planet.
 
 The Virtual Café Experience:
+
 Astronauts can then enter our virtual café, where they can choose between:
 
-Global Server: A space to have spontaneous, real-time conversations with fellow astronauts, simulating the feeling of serendipitous social interactions in a café setting.
-Private Server: An option to create or join a private, secure café space for intimate conversations with family and friends back on Earth. Only users with the access key can join, ensuring a personal and exclusive experience.
+Global Server:
+A space to have spontaneous, real-time conversations with fellow astronauts, simulating the feeling of serendipitous social interactions in a café setting.
+Private Server: 
+An option to create or join a private, secure café space for intimate conversations with family and friends back on Earth. Only users with the access key can join, ensuring a personal and exclusive experience.
 Ambience Recreation:
+
 The virtual café ambience is recreated using [Insert Pretzel details here], while live chat interactions are facilitated through [Insert Matther details here], enhancing the overall experience.
 
 🛠️ Tech Stack & Frameworks
