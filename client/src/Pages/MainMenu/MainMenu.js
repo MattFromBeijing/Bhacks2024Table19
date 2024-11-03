@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import * as THREE from "three";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import "./MainMenu.css";
 
 function MainMenu() {
+  const navigate = useNavigate();
+
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
@@ -35,7 +38,7 @@ function MainMenu() {
   startButton.innerText = "Start";
   startButton.className = "button"; // Add button styles
   startButton.onclick = () => {
-    console.log("Global clicked"); // Add your global logic here
+    navigate('/coffeeshop');
   };
   buttonContainer.appendChild(startButton);
 
