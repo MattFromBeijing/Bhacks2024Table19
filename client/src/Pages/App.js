@@ -9,15 +9,17 @@ import {
 import AudioPlayer from "../Audio/AudioPlayer";
 import "./App.css";
 import CoffeeShop from "./CoffeeShop/CoffeeShop.js";
+import MainMenu from "./MainMenu/MainMenu.js";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Navigate to="/coffeeshop" replace />} />
+          <Route path="/" element={<Navigate to="/mainmenu" replace />} />
           <Route path="coffeeShop" element={<CoffeeShop />} />
           <Route path="audioPlayer" element={<AudioPlayer />} />
+          <Route path="mainMenu" element={<MainMenu />} />
         </Routes>
       </div>
     </Router>
