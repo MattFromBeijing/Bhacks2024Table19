@@ -194,7 +194,6 @@ button {
     align-items: end;
     justify-content: center;
     flex-direction: column;
-    transform: translateX(-350px);
-
-    gap: 100px;
+    transform: translateX(-300px);
+    gap: 150px;
 }

@@ -32,23 +32,15 @@ function MainMenu() {
 
   // Create buttons
   const startButton = document.createElement("button");
-  startButton.innerText = "Global";
+  startButton.innerText = "Start";
   startButton.className = "button"; // Add button styles
   startButton.onclick = () => {
     console.log("Global clicked"); // Add your global logic here
   };
   buttonContainer.appendChild(startButton);
 
-  const optionsButton = document.createElement("button");
-  optionsButton.innerText = "Create";
-  optionsButton.className = "button"; // Add button styles
-  optionsButton.onclick = () => {
-    console.log("Create clicked"); // Add your create logic here
-  };
-  buttonContainer.appendChild(optionsButton);
-
   const exitButton = document.createElement("button");
-  exitButton.innerText = "Join";
+  exitButton.innerText = "Quit";
   exitButton.className = "button"; // Add button styles
   exitButton.onclick = () => {
     console.log("Join clicked"); // Add your join logic here
