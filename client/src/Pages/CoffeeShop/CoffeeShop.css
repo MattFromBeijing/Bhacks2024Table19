@@ -48,3 +48,85 @@
     .background-wrapper img.bread:hover {
         transform: scale(0.78);
     }
+
+    .background-wrapper .chatbox{
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        background-color: aliceblue;
+        height: 89.5vh;
+        width: 25%;
+        opacity: 80%;
+        padding: 3px;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+        .background-wrapper .chatbox .receive-section {
+            flex-grow: 1;
+
+            display: flex;
+            flex-direction: column;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .background-wrapper .chatbox .send-section {
+            height: 50px;
+            width: 100%;
+            margin-top: 4px;
+
+            display: flex;
+        }
+
+            .background-wrapper .chatbox .send-section button {
+                flex-grow: 1;
+                cursor: pointer;
+            }
+
+            .background-wrapper .chatbox .send-section textarea {
+                width: 70%;
+                resize: none;
+            }
+
+.message-wrapper {
+    width: 98.5%;
+    background-color: grey;
+    padding: 2px;
+}
+
+    .message-wrapper p.user-right{
+        font-size: 10px;
+        margin-bottom: 2px;
+        text-align: end;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    .message-wrapper p.message-right{
+        margin-top: 2px;
+        font-size: 15px;
+        text-align: end;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    .message-wrapper p.user-left{
+        font-size: 10px;
+        margin-bottom: 2px;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    .message-wrapper p.message-left{
+        margin-top: 2px;
+        font-size: 15px;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }

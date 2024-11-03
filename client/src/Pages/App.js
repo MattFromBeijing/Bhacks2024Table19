@@ -6,7 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import AudioPlayer from "../Audio/AudioPlayer"; // Adjust this path as needed
+import AudioPlayer from "../Audio/AudioPlayer";
 import "./App.css";
 import CoffeeShop from "./CoffeeShop/CoffeeShop.js";
 
