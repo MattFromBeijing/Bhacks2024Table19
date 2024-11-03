@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import "./MainMenu.css";
 
 function MainMenu() {
   const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -14,6 +15,7 @@ function MainMenu() {
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
   document.body.appendChild(renderer.domElement);
+  renderer.domElement.className = "main-menu-canvas";
 
   const scene = new THREE.Scene();
 
@@ -36,7 +38,7 @@ function MainMenu() {
   controls.target = new THREE.Vector3(0, 1, 0);
   controls.update();
 
-  const groundGeometry = new THREE.PlaneGeometry(20, 20, 32, 32);
+  const groundGeometry = new THREE.PlaneGeometry(0, 0, 0, 0);
   groundGeometry.rotateX(-Math.PI / 2);
   const groundMaterial = new THREE.MeshStandardMaterial({
     color: 0x555555,

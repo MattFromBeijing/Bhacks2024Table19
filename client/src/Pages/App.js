@@ -16,7 +16,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Navigate to="/coffeeshop" replace />} />
+          <Route path="/" element={<Navigate to="/mainmenu" replace />} />
           <Route path="coffeeShop" element={<CoffeeShop />} />
           <Route path="audioPlayer" element={<AudioPlayer />} />
           <Route path="mainMenu" element={<MainMenu />} />
