@@ -17,25 +17,55 @@ function MainMenu() {
   document.body.appendChild(renderer.domElement);
   renderer.domElement.className = "main-menu-canvas";
 
+  const container = document.createElement("div");
+  container.className = "main-menu-canvas";
+  document.body.appendChild(container);
+  container.appendChild(renderer.domElement);
+  renderer.domElement.className = "main-menu-canvas";
+
   const scene = new THREE.Scene();
 
-  const camera = new THREE.PerspectiveCamera(
-    30,
-    window.innerWidth / window.innerHeight,
-    1,
-    1000
-  );
-  camera.position.set(5, 10, 10);
+  // Create button container and set its class
+  const buttonContainer = document.createElement("div");
+  buttonContainer.className = "button-container"; // Button styles defined in CSS
+  container.appendChild(buttonContainer);
+
+  // Create buttons
+  const startButton = document.createElement("button");
+  startButton.innerText = "Global";
+  startButton.className = "button"; // Add button styles
+  startButton.onclick = () => {
+    console.log("Global clicked"); // Add your global logic here
+  };
+  buttonContainer.appendChild(startButton);
+
+  const optionsButton = document.createElement("button");
+  optionsButton.innerText = "Create";
+  optionsButton.className = "button"; // Add button styles
+  optionsButton.onclick = () => {
+    console.log("Create clicked"); // Add your create logic here
+  };
+  buttonContainer.appendChild(optionsButton);
+
+  const exitButton = document.createElement("button");
+  exitButton.innerText = "Join";
+  exitButton.className = "button"; // Add button styles
+  exitButton.onclick = () => {
+    console.log("Join clicked"); // Add your join logic here
+  };
+  buttonContainer.appendChild(exitButton);
+
+  // Set fixed camera position
+  const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 1000);
+  camera.position.set(5, 10, 10); // Fixed camera position
+  camera.lookAt(new THREE.Vector3(0, 4.1, 0)); // Fixed look-at point
 
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.enablePan = false;
-  controls.minDistance = 5;
-  controls.maxDistance = 20;
-  controls.minPolarAngle = 0.5;
-  controls.maxPolarAngle = 1.5;
-  controls.autoRotate = false;
-  controls.target = new THREE.Vector3(0, 1, 0);
+  controls.enableZoom = false;
+  controls.enableRotate = false;
+  controls.target.set(0, 4.1, 0);
   controls.update();
 
   const groundGeometry = new THREE.PlaneGeometry(0, 0, 0, 0);
@@ -55,12 +85,11 @@ function MainMenu() {
   loader.load(
     "scene.gltf",
     (gltf) => {
-      console.log("loading model");
       earth = gltf.scene;
 
-      earth.rotation.x = -(Math.PI / 6);
-      earth.position.set(0, 4.1, 0);
-      earth.scale.set(0.2, 0.2, 0.2);
+      // Set a fixed position for the earth
+      earth.position.set(-2.75, 6.5, 0);
+      earth.scale.set(0.27, 0.27, 0.27);
       scene.add(earth);
 
       document.getElementById("progress-container").style.display = "none";
@@ -74,7 +103,8 @@ function MainMenu() {
   );
 
   window.addEventListener("resize", () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    const aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = aspect; // Keep the camera aspect ratio
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
