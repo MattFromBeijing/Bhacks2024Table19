@@ -3,7 +3,7 @@ Here's a polished and structured README based on your project description, summa
 
 # Welcome to Interstellar Cafe 🌌🚀
 
-Interstellar is an immersive web application designed to help astronauts on extended space missions reconnect with their home planet, Earth. By engaging their auditory senses, our platform soothes the isolation of space and evokes the warmth and familiarity of life on Earth, providing a much-needed sense of comfort and motivation.
+Interstellar is an immersive web application designed to help astronauts on extended space missions reconnect with their home planet, Earth. By engaging with their auditory senses, our platform soothes the isolation of space and evokes the warmth and familiarity of life on Earth, providing a much-needed sense of comfort and motivation.
 
 ## 🌍 Overview of the Application
 
