@@ -1,6 +1,4 @@
-import { useEffect, useState, memo } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import AudioPlayer from "/Users/pretzelr/Documents/GitHub/Hackathon/BostonHacks24/Bhacks2024Table19/client/src/Audio/AudioPlayer"; // Adjust the path if necessary
+import AudioPlayer from "../../Audio/AudioPlayer"; // Adjust the path if necessary
 
 import "./CoffeeShop.css";
 
