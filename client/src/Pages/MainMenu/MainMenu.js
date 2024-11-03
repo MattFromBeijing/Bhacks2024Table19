@@ -39,14 +39,6 @@ function MainMenu() {
   };
   buttonContainer.appendChild(startButton);
 
-  const exitButton = document.createElement("button");
-  exitButton.innerText = "Quit";
-  exitButton.className = "button"; // Add button styles
-  exitButton.onclick = () => {
-    console.log("Join clicked"); // Add your join logic here
-  };
-  buttonContainer.appendChild(exitButton);
-
   // Set fixed camera position
   const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 1000);
   camera.position.set(5, 10, 10); // Fixed camera position

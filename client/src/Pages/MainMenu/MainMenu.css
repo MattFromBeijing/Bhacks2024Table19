@@ -15,7 +15,7 @@
 }
 
 button {
-    padding: 50px 50px 50px 50px;
+    padding: 50px 90px 50px 90px;
     background: #181c35;
     border-radius: 30px;
     display: flex;
@@ -26,7 +26,7 @@ button {
     transition: all ease-in-out .5s;
     border: #ffffff56 solid 1px;
     box-shadow: #51eafd 0px 0px 50px -15px;
-    font-size: 35px;
+    font-size: 50px;
     text-align: center;
     align-items: center;
   }
@@ -194,6 +194,6 @@ button {
     align-items: end;
     justify-content: center;
     flex-direction: column;
-    transform: translateX(-300px);
+    transform: translateX(-280px);
     gap: 150px;
 }
