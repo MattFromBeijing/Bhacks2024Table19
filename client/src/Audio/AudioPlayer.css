@@ -2,27 +2,26 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: rgba(0, 0, 0, 0.7);
+  background: darkgrey; /* Semi-transparent grey */
   padding: 10px;
   border-radius: 10px;
-  color: white;
+  color: rgb(32, 31, 31); /* Dark grey text */
   text-align: center;
 }
 
-.audio-controls button {
-  margin: 0 5px;
-  background: none;
-  border: 1px solid white;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
+.audio-controls .controls button {
+  background: darkgrey; /* Dark grey for buttons */
+  border: none; /* Remove default border */
+  color: rgb(32, 31, 31); /* White text for buttons */
+  padding: 10px; /* Add padding for a better look */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
-.audio-controls button:hover {
-  background: rgba(255, 255, 255, 0.2);
+.audio-controls .controls button:hover {
+  background: darkgrey; /* Lighten on hover */
 }
-
+/* 
 .volume-control {
   display: flex;
   align-items: center;
@@ -30,4 +29,40 @@
 
 .volume-control input {
   margin-right: 10px;
+} */
+
+.volume-control input[type="range"] {
+  -webkit-appearance: none; /* Remove default styling */
+  width: 100%; /* Full width */
+  background: rgb(59, 59, 59);
+  /* background: rgba(255, 255, 255, 0.2); Semi-transparent white line */
+  height: 5px; /* Height of the line */
+  border-radius: 5px; /* Rounded line */
+}
+
+.volume-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default styling */
+  appearance: none; /* Remove default styling */
+  width: 20px; /* Width of the thumb */
+  height: 20px; /* Height of the thumb */
+  border-radius: 50%; /* Make it circular */
+  background: white; /* White circle */
+  cursor: pointer; /* Pointer cursor */
+  margin-top: -1px; /* Center the thumb vertically */
+}
+
+.volume-control input[type="range"]::-moz-range-thumb {
+  width: 20px; /* Width of the thumb */
+  height: 20px; /* Height of the thumb */
+  border-radius: 50%; /* Make it circular */
+  background: white; /* White circle */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.volume-control input[type="range"]::-ms-thumb {
+  width: 20px; /* Width of the thumb */
+  height: 20px; /* Height of the thumb */
+  border-radius: 50%; /* Make it circular */
+  background: white; /* White circle */
+  cursor: pointer; /* Pointer cursor */
 }
